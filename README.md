@@ -13,6 +13,6 @@ Run '01_split_rock_images_to_json.py'. Randomly select a specified number of roc
 Run '02_label_idx_json_file_save.py'. Save few-shot learning data in a json format file.
 ### 3.Read the rock type similarity
 Run '03_ReadSimilarityfromKG.py'. Read the rock type similarity knowledge from the LithoKG and save it as a npy format file.
-./res_vgg16.sh
-
-./res_inceptionv3.sh
+### 4.Carry out the comparative few-shot learning experiments
+    ./res_vgg16.sh
+    ./res_inceptionv3.sh
