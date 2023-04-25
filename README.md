@@ -5,7 +5,7 @@ This is the source codes for few-shot learning of rock images and and the cypher
     Pytorch-gpu==1.9.1
     py2neo==2021.2.3
 ## Construction and reasoning of the LithoKG
-Execute the cypher scripts in turn in the neo4j browser.
+Execute the cypher scripts in turn in the neo4j browser. 
 ## Running the codes and scripts
 ### 1.Prepare the feature split json file
 Run '01_split_rock_images_to_json.py'. Randomly select a specified number of rock images per class and save them as a json format file.
