@@ -16,3 +16,5 @@ Run '03_ReadSimilarityfromKG.py'. Read the rock type similarity knowledge from t
 ### 4.Carry out the comparative few-shot learning experiments
     ./res_vgg16.sh
     ./res_inceptionv3.sh
+## Contributing
+Feel free to contact c_mulder@163.com if you have any question.
