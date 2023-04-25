@@ -1,0 +1,250 @@
+// Delete the existing nodes and edges
+MATCH (n) DETACH DELETE n
+
+// Create a LithoKG with 32 rock type nodes and their relationships
+CREATE
+  (quartz:Mineral {name: '石英'}),
+  (plagioclase:Mineral {name: '斜长石'}),
+  (kfeldspar:Mineral {name: '钾长石'}),
+  (pyroxene:Mineral {name: '角闪石-辉石-硬玉'}),
+  (omphacite:Mineral {name: '绿辉石'}),
+  (garnet:Mineral {name: '石榴子石'}),
+  (calcite:Mineral {name: '方解石'}),
+  (serpentine:Mineral {name: '蛇纹石'}),
+  (muscovite:Mineral {name: '白云母'}),
+  (biotite:Mineral {name: '黑云母'}),
+  (sericite:Mineral {name: '绢云母'}),
+  (chlorite:Mineral {name: '绿泥石'}),  
+  (clay:Mineral {name: '黏土矿物'}),
+  (cryptocrystalline_text:Texture {name: '泥状-隐晶质-玻璃质结构'}),
+  (grval_text:Texture {name: '砾状结构'}),
+  (porphy_text:Texture {name: '斑状结构'}),
+  (massive_stru:Structure {name: '块状构造'}),
+  (phyllitic_stru:Structure {name: '千枚状构造'}),
+  (schistose_stru:Structure {name: '片状构造'}),
+  (gneissose_stru:Structure {name: '片麻状构造'}),
+  (banded_stru:Structure {name: '带状构造'}),
+  (layered_stru:Structure {name: '层状-页理构造'}),
+  (vesicular_stru:Structure {name: '气孔构造'}),
+  (amygdaloidal_stru:Structure {name: '杏仁构造'}),
+  (fluidal_stru:Structure {name: '流纹构造'}),
+  (conchoidal_f:Feature {name: '贝壳状断口'}),
+  (luster_f:Feature {name: '松脂光泽'}),
+  // Create plutonic rock nodes and relationships
+  (Syenogranite:Rock {name: '61_Syenogranite'}),
+  (Monzonitic_granite:Rock {name: '62_Monzonitic_granite'}),
+  (Granodiorite:Rock {name: '63_Granodiorite'}),
+  (Monzonite:Rock {name: '44_Monzonite'}),
+  (Syenite:Rock {name: '41_Syenite'}),
+  (Diorite:Rock {name: '31_Diorite'}),
+  (Gabbro:Rock {name: '22_Gabbro'}),
+  (Syenogranite)-[:MA_MINERAL {strength: 0.3}]->(quartz),
+  (Syenogranite)-[:MA_MINERAL {strength: 0.23}]->(plagioclase),
+  (Syenogranite)-[:MA_MINERAL {strength: 0.47}]->(kfeldspar),
+  (Monzonitic_granite)-[:MA_MINERAL {strength: 0.3}]->(quartz),
+  (Monzonitic_granite)-[:MA_MINERAL {strength: 0.35}]->(plagioclase),
+  (Monzonitic_granite)-[:MA_MINERAL {strength: 0.35}]->(kfeldspar),
+  (Granodiorite)-[:MA_MINERAL {strength: 0.3}]->(quartz),
+  (Granodiorite)-[:MA_MINERAL {strength: 0.47}]->(plagioclase),
+  (Granodiorite)-[:MA_MINERAL {strength: 0.23}]->(kfeldspar),
+  (Monzonite)-[:MA_MINERAL {strength: 0.5}]->(plagioclase),
+  (Monzonite)-[:MA_MINERAL {strength: 0.5}]->(kfeldspar),
+  (Syenite)-[:MA_MINERAL {strength: 0.7}]->(plagioclase),
+  (Syenite)-[:MA_MINERAL {strength: 0.3}]->(kfeldspar),
+  (Diorite)-[:MA_MINERAL {strength: 0.6}]->(plagioclase),
+  (Diorite)-[:MA_MINERAL {strength: 0.4}]->(pyroxene),
+  (Gabbro)-[:MA_MINERAL {strength: 0.4}]->(plagioclase),
+  (Gabbro)-[:MA_MINERAL {strength: 0.6}]->(pyroxene),
+  // Create metamorphic rock nodes and relationships
+  (Granulite:Rock {name: '240_Granulite'}),
+  (Quartzite:Rock {name: '251_Quartzite'}),
+  (Marble:Rock {name: '260_Marble'}),
+  (Amphibolite:Rock {name: '271_Amphibolite'}),  
+  (Eclogite:Rock {name: '280_Eclogite'}), 
+  (Serpentinite:Rock {name: '287_Serpentinite'}), 
+  (Phyllite:Rock {name: '210_Phyllite'}),
+  (Quartz_schist:Rock {name: '221_quartz_schist'}),
+  (Plagiogneiss:Rock {name: '231_plagiogneiss'}),
+  (K_gneiss:Rock {name: '233_k-feldspar_gneiss'}),
+  (Mylonite:Rock {name: '291_mylonite'}),
+  (Jadeite:Rock {name: '252_Jadeite_quartzite'}),
+  (Granulite)-[:MA_MINERAL {strength: 0.2}]->(kfeldspar),
+  (Granulite)-[:MA_MINERAL {strength: 0.2}]->(plagioclase),
+  (Granulite)-[:MA_MINERAL {strength: 0.6}]->(quartz),
+  (Quartzite)-[:MA_MINERAL {strength: 1.0}]->(quartz),
+  (Marble)-[:MA_MINERAL {strength: 1.0}]->(calcite),
+  (Amphibolite)-[:MA_MINERAL {strength: 0.4}]->(plagioclase),
+  (Amphibolite)-[:MA_MINERAL {strength: 0.6}]->(pyroxene),
+  (Eclogite)-[:MA_MINERAL {strength: 0.5}]->(omphacite),
+  (Eclogite)-[:MA_MINERAL {strength: 0.5}]->(garnet),
+  (Serpentinite)-[:MA_MINERAL {strength: 1}]->(serpentine),
+  (Phyllite)-[:MA_MINERAL {strength: 0.50}]->(sericite),
+  (Phyllite)-[:MA_MINERAL {strength: 0.25}]->(chlorite),
+  (Phyllite)-[:MA_MINERAL {strength: 0.25}]->(quartz),
+  (Quartz_schist)-[:MA_MINERAL {strength: 0.6}]->(quartz),
+  (Quartz_schist)-[:MA_MINERAL {strength: 0.2}]->(biotite),
+  (Quartz_schist)-[:MA_MINERAL {strength: 0.2}]->(muscovite),
+  (Plagiogneiss)-[:MA_MINERAL {strength: 0.6}]->(plagioclase),
+  (Plagiogneiss)-[:MA_MINERAL {strength: 0.2}]->(kfeldspar),
+  (Plagiogneiss)-[:MA_MINERAL {strength: 0.2}]->(quartz),
+  (K_gneiss)-[:MA_MINERAL {strength: 0.2}]->(plagioclase),
+  (K_gneiss)-[:MA_MINERAL {strength: 0.6}]->(kfeldspar),
+  (K_gneiss)-[:MA_MINERAL {strength: 0.2}]->(quartz),
+  (Jadeite)-[:MA_MINERAL {strength: 0.5}]->(pyroxene),
+  (Jadeite)-[:MA_MINERAL {strength: 0.5}]->(quartz),
+  (Syenogranite)-[:MA_STRU]->(massive_stru),
+  (Monzonitic_granite)-[:MA_STRU]->(massive_stru),
+  (Granodiorite)-[:MA_STRU]->(massive_stru),
+  (Monzonite)-[:MA_STRU]->(massive_stru),
+  (Syenite)-[:MA_STRU]->(massive_stru),
+  (Diorite)-[:MA_STRU]->(massive_stru),
+  (Gabbro)-[:MA_STRU]->(massive_stru),
+  (Granulite)-[:MA_STRU]->(massive_stru),
+  (Quartzite)-[:MA_STRU]->(massive_stru),
+  (Marble)-[:MA_STRU]->(massive_stru),
+  (Amphibolite)-[:MA_STRU]->(massive_stru),
+  (Eclogite)-[:MA_STRU]->(massive_stru),
+  (Serpentinite)-[:MA_STRU]->(massive_stru), 
+  (Phyllite)-[:MA_STRU]->(phyllitic_stru), 
+  (Quartz_schist)-[:MA_STRU]->(schistose_stru), 
+  (Plagiogneiss)-[:MA_STRU]->(gneissose_stru), 
+  (K_gneiss)-[:MA_STRU]->(gneissose_stru), 
+  (Mylonite)-[:MA_STRU]->(banded_stru), 
+  (Jadeite)-[:MA_STRU]->(massive_stru),
+  // Create sedimentary rock nodes and relationships
+  (Conglomerate:Rock {name: '301_Conglomerate'}),
+  (Sandstone:Rock {name: '310_Sandstone'}),
+  (Mudstone:Rock {name: '330_Mudstone'}),
+  (Shale:Rock {name: '340_Shale'}),
+  (Micrite:Rock {name: '356_micrite'}),
+  (Silicalite:Rock {name: '370_Silicalite'}), 
+  (Conglomerate)-[:MA_TEXT]->(grval_text), 
+  (Conglomerate)-[:MA_STRU]->(massive_stru), 
+  (Sandstone)-[:MA_STRU]->(massive_stru),
+  (Mudstone)-[:MA_TEXT]->(cryptocrystalline_text), 
+  (Mudstone)-[:MA_STRU]->(massive_stru), 
+  (Mudstone)-[:MA_MINERAL]->(clay),
+  (Mudstone)-[:MACRO_F]->(conchoidal_f),
+  (Shale)-[:MA_TEXT]->(cryptocrystalline_text), 
+  (Shale)-[:MA_STRU]->(layered_stru), 
+  (Shale)-[:MA_MINERAL]->(clay),
+  (Shale)-[:MACRO_F]->(conchoidal_f), 
+  (Micrite)-[:MA_TEXT]->(cryptocrystalline_text),
+  (Micrite)-[:MA_STRU]->(massive_stru),
+  (Micrite)-[:MA_MINERAL]->(calcite),
+  (Micrite)-[:MACRO_F]->(conchoidal_f),
+  (Silicalite)-[:MA_TEXT]->(cryptocrystalline_text),
+  (Silicalite)-[:MA_STRU]->(layered_stru), 
+  (Silicalite)-[:MA_MINERAL]->(quartz),
+  (Silicalite)-[:MACRO_F]->(conchoidal_f), 
+  // Create volcanic rock nodes and relationships
+  (Basalt:Rock {name: '111_Basalt'}),
+  (Basalt)-[:MA_TEXT]->(porphy_text),
+  (Basalt)-[:MA_STRU]->(vesicular_stru),
+  (Basalt)-[:MA_STRU]->(amygdaloidal_stru),
+  (Basalt)-[:PHY_MINERAL]->(plagioclase),
+  (Basalt)-[:PHY_MINERAL]->(pyroxene),
+  (Andesite:Rock {name: '121_Andesite'}),
+  (Andesite)-[:MA_TEXT]->(porphy_text),
+  (Andesite)-[:MA_STRU]->(massive_stru),
+  (Andesite)-[:PHY_MINERAL]->(pyroxene),
+  (Andesite)-[:PHY_MINERAL]->(plagioclase),
+  (Trachyte:Rock {name: '131_trachyte'}),
+  (Trachyte)-[:MA_TEXT]->(porphy_text),
+  (Trachyte)-[:MA_STRU]->(massive_stru),
+  (Trachyte)-[:PHY_MINERAL]->(plagioclase),
+  (Trachyte)-[:PHY_MINERAL]->(pyroxene),
+  (Trachyte)-[:PHY_MINERAL]->(biotite),
+  (Rhyolite:Rock {name: '141_Rhyolite'}),
+  (Rhyolite)-[:MA_TEXT]->(porphy_text),
+  (Rhyolite)-[:MA_STRU]->(fluidal_stru),
+  (Rhyolite)-[:PHY_MINERAL]->(plagioclase),
+  (Rhyolite)-[:PHY_MINERAL]->(quartz),
+  (Rhyolite)-[:MACRO_F]->(conchoidal_f), 
+  (Obsidian:Rock {name: '144_Obsidian'}),
+  (Obsidian)-[:MA_TEXT]->(cryptocrystalline_text),
+  (Obsidian)-[:MACRO_F]->(conchoidal_f), 
+  (Pitchstone:Rock {name: '145_Pitchstone'}),
+  (Pitchstone)-[:MA_TEXT]->(cryptocrystalline_text),
+  (Pitchstone)-[:MACRO_F]->(conchoidal_f), 
+  (Pitchstone)-[:MACRO_F]->(luster_f), 
+  (Pumice:Rock {name: '147_Pumice'}),
+  (Pumice)-[:MA_TEXT]->(cryptocrystalline_text),
+  (Pumice)-[:MA_STRU]->(vesicular_stru);
+
+
+
+// Show meta-graph
+CALL db.schema.visualization()
+
+
+// Return all nodes and edges
+MATCH (n) RETURN n
+
+//Delete multigraph projection
+CALL gds.graph.drop('rockMultiKG')
+
+CALL gds.graph.project(
+    'rockMultiKG',
+    ['Rock', 'Mineral', 'Structure', 'Texture', 'Feature'],
+    {
+        MA_MINERAL: {
+            properties: {
+                strength: {
+                    property: 'strength',
+                    defaultValue: 1.0
+                }
+            }
+        },
+        PHY_MINERAL: {
+            properties: {
+                strength: {
+                    property: 'strength',
+                    defaultValue: 1.0
+                }
+            }
+        },
+        MA_STRU: {
+            properties: {
+                strength: {
+                    property: 'strength',
+                    defaultValue: 1.0
+                }
+            }
+        },
+        MA_TEXT: {
+            properties: {
+                strength: {
+                    property: 'strength',
+                    defaultValue: 1.0
+                }
+            }
+        }, 
+        MACRO_F: {
+            properties: {
+                strength: {
+                    property: 'strength',
+                    defaultValue: 1.0
+                }
+            }
+        }
+    }
+);
+
+//List the existing graph projections
+CALL gds.graph.list()
+
+
+CALL gds.nodeSimilarity.stream('rockMultiKG', { relationshipWeightProperty: 'strength', similarityCutoff: 0.01 })
+YIELD node1, node2, similarity
+RETURN gds.util.asNode(node1).name AS Rock1, gds.util.asNode(node2).name AS Rock2, similarity
+ORDER BY similarity DESCENDING, Rock1, Rock2
+
+
+CALL gds.nodeSimilarity.write('rockMultiKG', {
+    writeRelationshipType: 'SIMILAR',
+    writeProperty: 'score',
+    relationshipWeightProperty: 'strength',
+    similarityCutoff: 0.01
+})
+YIELD nodesCompared, relationshipsWritten
