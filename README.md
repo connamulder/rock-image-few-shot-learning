@@ -8,7 +8,7 @@ This is the source codes for few-shot learning of rock images and and the cypher
 Execute the cypher scripts in turn in the neo4j browser.
 ## Running the codes and scripts
 ### 1.Prepare the feature split json file
-Run 01_split_features.py. 
+Run 01_split_rock_images_to_json.py. To randomly select a specified number of rock images per class and save as json format file.
 ### 2.Prepare few-shot learning json file
 Run 01_split_features.py. Save few-shot learning data file in format
 ### 3.Read the rock type similarity
