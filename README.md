@@ -14,9 +14,9 @@ Run '02_label_idx_json_file_save.py' python file. Save few-shot learning data in
 ### 3. Read the rock type similarity
 Run '03_ReadSimilarityfromKG.py' python file. Read the rock type similarity knowledge from the LithoKG and save it as a npy format file.
 ### 4. Carry out the comparative few-shot learning experiments
-#### 4.1 For VGG16
+#### For VGG16
     ./res_vgg16.sh
-#### 4.2 For InceptionV3
+#### For InceptionV3
     ./res_inceptionv3.sh
 ## Contributing
 Feel free to contact c_mulder@163.com if you have any question.
