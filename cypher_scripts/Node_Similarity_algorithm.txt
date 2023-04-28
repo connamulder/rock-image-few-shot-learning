@@ -248,3 +248,9 @@ CALL gds.nodeSimilarity.write('rockMultiKG', {
     similarityCutoff: 0.01
 })
 YIELD nodesCompared, relationshipsWritten
+
+//Query the pairs of rock types where similarity is 1.
+MATCH p=()-[r:SIMILAR]->() where r.score=1 RETURN p
+
+//Query the pairs of rock types where 0.85 < similarity < 1.
+MATCH p=()-[r:SIMILAR]->() where r.score>0.85 and r.score<1 RETURN p, r
