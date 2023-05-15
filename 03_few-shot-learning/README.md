@@ -1,24 +1,10 @@
 # rock-image-few-shot-learning
-This is the source codes for few-shot learning of rock images and and the cypher scripts for construction and reasoning of the petrographic knowledge graph (PGKG).
-
-```bash
-@article{chen2023fslearning,
-  title={Based on petrographic knowledge supervision the rock image few-shot learning},
-  author={Chen Zhongliang,Yuan Feng, Li Xiaohui, Zhang Mingming, Zheng Chaojie},
-  journal={},
-  year={},
-  publisher={},
-  doi={}
-}
-```
+This is the source codes for few-shot learning of rock images.
 
 ## Preparation
 - Python==3.7.3
 - Pytorch-gpu==1.9.1
 - py2neo==2021.2.3
-
-## Construction and reasoning of the PGKG
-Execute the cypher scripts in turn in the Neo4j browser. 
 
 ## Running the codes and scripts
 
@@ -51,6 +37,3 @@ python 03_ReadSimilarityfromKG.py
 ```shell
 ./res_inceptionv3.sh
 ```
-
-## Contributing
-Feel free to contact c_mulder@163.com if you have any question.
