@@ -1,5 +1,9 @@
 # rock-image-few-shot-learning
-This is the source codes for few-shot learning of rock images and and the cypher scripts for construction and reasoning of the petrographic knowledge graph (PGKG).
+This is the source codes for rock image few-shot learning. The whole process can be divided into three stages: deep transfer learning of rock images, construction and reasoning of the petrographic knowledge graph (PGKG) and few-shot learning of rock images.
+    In the stage of deep transfer learning, we use Tensorflow-GPU (2.6) as the development framework. The weights of VGG16, InceptionV3 and ResNet50 all were automatically downloaded by the codes of Keras applications integrated in the Tensorflow.
+    In the stage of construction and reasoning of the PGKG, the py2neo (2021.2.3) was used as the driver library and toolkit for working with the database of Neo4j (4.4.11). The plugin version of the Neo4j Graph Data Science (GDS) library installed in the database is 2.2.1. 
+    In the stage of the few-shot learning, the Pytorch-GPU (1.9.1) was used as the development framework. 
+
 
 ```bash
 @article{chen2023fslearning,
@@ -10,46 +14,6 @@ This is the source codes for few-shot learning of rock images and and the cypher
   publisher={},
   doi={}
 }
-```
-
-## Preparation
-- Python==3.7.3
-- Pytorch-gpu==1.9.1
-- py2neo==2021.2.3
-
-## Construction and reasoning of the PGKG
-Execute the cypher scripts in turn in the Neo4j browser. 
-
-## Running the codes and scripts
-
-### 1. Prepare the feature split json file
-Randomly select a specified number of rock images per class and save them as a json format file.
-```shell
-python 01_split_rock_images_to_json.py
-```
-
-### 2. Prepare json file for few-shot learning
-Save few-shot learning data in a json format file.
-```shell
-python 02_label_idx_json_file_save.py
-```
-
-### 3. Read the rock type similarity
-Read the rock type similarity knowledge from the PGKG and save it as a npy format file.
-```shell
-python 03_ReadSimilarityfromKG.py
-```
-
-### 4. Carry out the comparative few-shot learning experiments
-
-#### For VGG16
-```shell
- ./res_vgg16.sh
-```
-
-#### For InceptionV3
-```shell
-./res_inceptionv3.sh
 ```
 
 ## Contributing
