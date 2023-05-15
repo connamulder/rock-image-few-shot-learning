@@ -1,4 +1,4 @@
-# - Rock image few-shot learning
+#Rock image few-shot learning
 This is the source codes for rock image few-shot learning. The whole process can be divided into three stages: deep transfer learning of rock images, construction and reasoning of the petrographic knowledge graph (PGKG) and few-shot learning of rock images.
     
 
