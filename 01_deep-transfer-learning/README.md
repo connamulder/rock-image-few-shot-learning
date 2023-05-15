@@ -1,17 +1,6 @@
 # rock-image-transfer-learning
 This is the source codes for deep transfer learning of rock images.
 
-```bash
-@article{chen2023fslearning,
-  title={Based on petrographic knowledge supervision the rock image few-shot learning},
-  author={Chen Zhongliang,Yuan Feng, Li Xiaohui, Zhang Mingming, Zheng Chaojie},
-  journal={},
-  year={},
-  publisher={},
-  doi={}
-}
-```
-
 ## Preparation
 - Python==3.7.3    
 - Tensorflow-gpu==2.6.0
@@ -37,6 +26,3 @@ Parameters were setting in the function "parse_args".
 ```shell
 python 03_save_rock_images_features.py
 ```
-
-## Contributing
-Feel free to contact c_mulder@163.com if you have any question.
