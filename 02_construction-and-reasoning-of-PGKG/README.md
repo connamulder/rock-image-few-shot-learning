@@ -1,4 +1,4 @@
-# Construction and reasoning of the petrographic knowledge graph (PGKG)
+# Construction and Reasoning of the Petrographic Knowledge Graph (PGKG)
 This is the cypher scripts for construction and reasoning of the petrographic knowledge graph (PGKG).
 
 ## Preparation
