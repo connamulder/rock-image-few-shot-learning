@@ -1,4 +1,4 @@
-# rock-image-transfer-learning
+# Rock image transfer learning
 This is the source codes for deep transfer learning of rock images.
 
 ## Preparation
