@@ -14,8 +14,7 @@ In the stage of the few-shot learning, the Pytorch-GPU (1.9.1) was used as the d
 
 ```bash
 @article{chen2023fslearning,
-  title={A few-shot learning framework for rock images
-dually driven by data and knowledge},
+  title={A few-shot learning framework for rock images dually driven by data and knowledge},
   author={Chen Zhongliang,Yuan Feng, Li Xiaohui, Zhang Mingming, Zheng Chaojie},
   journal={},
   year={},
